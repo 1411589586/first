@@ -12,3 +12,24 @@
 	<a href="#case3">test3</a>
 	<a href="#case4">test4</a>
 ```
+
+### 数据的获取
+
+``` javascript
+import React from 'react'
+
+export default class extends React.Component {
+ static async getInitialProps({ req }) {
+   const userAgent = req ? req.headers['user-agent'] : navigator.userAgent
+   return { userAgent }
+ }
+
+ render() {
+   return (
+     <div>
+       Hello World {this.props.userAgent}
+     </div>
+   )
+ }
+}
+```
